@@ -1,12 +1,12 @@
 Summary:	Evil - EFL Windows compatibility layer
 Summary(pl.UTF-8):	Evil - Warstwa kompatybilności EFL z Windows
 Name:		crossmingw32-evil
-Version:	1.1.0
+Version:	1.7.0
 Release:	1
 License:	Free (see COPYING)
 Group:		Development/Libraries
 Source0:	http://download.enlightenment.org/releases/evil-%{version}.tar.bz2
-# Source0-md5:	cb5699d59fa6822967900e046eaac112
+# Source0-md5:	bf3f25749657cf7171aa58debada3e13
 URL:		http://trac.enlightenment.org/e/wiki/EFL
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6
@@ -32,8 +32,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # arch-specific flags (like alpha's -mieee) are not valid for i386 gcc
 %define		optflags	-O2
 %endif
-# -z options are invalid for mingw linker
+# -z options are invalid for mingw linker, most of -f options are Linux-specific
 %define		filterout_ld	-Wl,-z,.*
+%define		filterout_c	-f[-a-z0-9=]*
 
 %description
 The Evil library tried to port some convenient Unix functions to the
