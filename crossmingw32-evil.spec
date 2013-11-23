@@ -1,12 +1,12 @@
 Summary:	Evil - EFL Windows compatibility layer
 Summary(pl.UTF-8):	Evil - Warstwa kompatybilności EFL z Windows
 Name:		crossmingw32-evil
-Version:	1.7.7
+Version:	1.7.9
 Release:	1
 License:	Free (see COPYING)
 Group:		Development/Libraries
 Source0:	http://download.enlightenment.org/releases/evil-%{version}.tar.bz2
-# Source0-md5:	8a895216df97306048e40514dc6abecb
+# Source0-md5:	04dd37a2d58e9be9da7c847436d5b64b
 URL:		http://trac.enlightenment.org/e/wiki/EFL
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6
