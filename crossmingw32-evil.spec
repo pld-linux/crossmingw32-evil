@@ -2,20 +2,23 @@ Summary:	Evil - EFL Windows compatibility layer
 Summary(pl.UTF-8):	Evil - Warstwa kompatybilności EFL z Windows
 Name:		crossmingw32-evil
 Version:	1.7.10
-Release:	2
+Release:	3
 License:	Free (see COPYING)
 Group:		Development/Libraries
 Source0:	http://download.enlightenment.org/releases/evil-%{version}.tar.bz2
 # Source0-md5:	687e46bab85c11d136d61300741a0e46
+Patch0:		evil-fnmatch-defines.patch
 URL:		http://trac.enlightenment.org/e/wiki/EFL
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6
 BuildRequires:	crossmingw32-gcc
+BuildRequires:	crossmingw32-gcc-c++
 BuildRequires:	libtool >= 2:2.4
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		no_install_post_strip	1
+%define		_enable_debug_packages	0
 
 %define		target			i386-mingw32
 %define		target_platform 	i386-pc-mingw32
@@ -79,6 +82,7 @@ Biblioteki DLL Evil dla Windows.
 
 %prep
 %setup -q -n evil-%{version}
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
